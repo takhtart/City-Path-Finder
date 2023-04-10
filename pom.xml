@@ -17,7 +17,7 @@
         <module>generator</module>
         <module>io</module>
         <module>visualizer</module>
-		
+		<module>pathfinder</module>
 
 		
     </modules>
