@@ -3,9 +3,7 @@ package ca.mcmaster.cas.se2aa4.a4.pathfinder.adt;
 public class Edge {
 
     private final int c1, c2;
-    private int  red, green, blue = 0;
-    private boolean marked = false;
-    private int weight = 1;
+    private int weight;
     private int thickness;
 
     public Edge(int c1, int c2) {
@@ -21,31 +19,14 @@ public class Edge {
         return c2;
     }
 
-    public void setEdgeWeight(int weight){
-        this.weight = weight;
+    public void setEdgeWeight(Node n1, Node n2){
+        this.weight = (int)Math.sqrt(Math.pow(n1.getX() - n2.getX(),2) + Math.pow(n1.getY()- n2.getY(),2));;
     }
 
     public int getEdgeWeight(){
         return weight;
     }
 
-    public void setMarked(){
-        this.marked = true;
-    }
-    public void setUnmarked(){
-        this.marked = false;
-    }
-    public boolean isMarked(){
-        return marked;
-    }
-
-    public void setColor(int r, int g, int b){
-        if (r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255){
-            this.red = r;
-            this.green = g;
-            this.blue = b;
-        }
-    }
     public void setThickness(int thickness){
         this.thickness = thickness;
     }
@@ -53,8 +34,5 @@ public class Edge {
         return thickness;
     }
     
-    public String getStringColor(){
-        return red + "," + green + "," + blue;
-    }
 
 }

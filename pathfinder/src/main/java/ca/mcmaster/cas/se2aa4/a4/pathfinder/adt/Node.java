@@ -1,16 +1,19 @@
 package ca.mcmaster.cas.se2aa4.a4.pathfinder.adt;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Node implements Comparable<Node>{
     private final double x, y;
-    private final List<Integer> neighbors;
-    private int  red, green, blue = 0;
-    public Node(double x, double y, List<Integer> neighbors) {
+    private List<Integer> neighbors = new ArrayList<>();
+    private double cost = Double.MAX_VALUE;
+
+    private int index;
+
+    public Node(int i, double x, double y) {
+        this.index = i;
         this.x = x;
         this.y = y;
-        this.neighbors = neighbors;
-
     }
 
     public double getX() {
@@ -21,28 +24,36 @@ public class Node {
         return y;
     }
 
-    public List<Integer> getNeighborIdxsList(){
+    public void setCost(double d){
+        cost = d;
+    }
+
+    public double getCost(){
+        return cost;
+    }
+
+    public int getIndex(){
+        return index;
+    }
+
+    public List<Integer> getNeighborsNodes(){
         return neighbors;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Node corner = (Node) o;
-        return x == corner.x && y == corner.y;
+    public void addNeighbor(int n){
+        neighbors.add(n);
     }
 
-    public void setColor(int r, int g, int b){
-        if (r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255){
-            this.red = r;
-            this.green = g;
-            this.blue = b;
+
+    public int compareTo(Node n) {
+        if(this.cost < n.getCost()){
+            return -1;
         }
-    }
-
-    public String getStringColor(){
-        return red + "," + green + "," + blue;
+        else if(this.cost > n.getCost()){
+            return 1;
+        }
+        else
+            return 0;
     }
 
 }

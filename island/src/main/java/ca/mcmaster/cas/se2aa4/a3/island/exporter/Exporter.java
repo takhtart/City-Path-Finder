@@ -33,7 +33,8 @@ public class Exporter {
 
         for (Tile t: tiles) {
             Property color = Property.newBuilder().setKey("rgb_color").setValue(t.getStringColor()).build();
-            Polygon polygon = Polygon.newBuilder().addAllSegmentIdxs(t.getSegmentsList()).addAllNeighborIdxs(t.getNeighborsList()).setCentroidIdx(t.getCentroidIdx()).addProperties(color).build();
+            Property tiletype = Property.newBuilder().setKey("tiletype").setValue(t.getTiletype()).build();
+            Polygon polygon = Polygon.newBuilder().addAllSegmentIdxs(t.getSegmentsList()).addAllNeighborIdxs(t.getNeighborsList()).setCentroidIdx(t.getCentroidIdx()).addProperties(color).addProperties(tiletype).build();
             polygons.add(polygon);
         }
 
