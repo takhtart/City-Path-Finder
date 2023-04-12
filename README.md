@@ -111,9 +111,9 @@ When you develop features and enrich the product, remember that you have first t
 | F11 | Interface to define the public contract of “finding a path between two nodes". | Tarnveer | 04/10/2023 | 04/11/2023 | D | 
 | F12 | Implementation of a pathfinder algorithm to find a (shortest) path between two nodes | Tarnveer | 04/10/2023 | 04/11/2023 | D | 
 | F13 | Add Pathfinder library as a dependency of the generator project | Tarnveer | 04/11/2023 | 04/11/2023 | D | 
-| F14 | Enrich island generator project to add cities of different sizes (from small hamlets to big capital cities) to the islands. | Tarnveer |  |  | P | 
-| F15 | Use pathfinder library to create a “star network” of roads on the island | Tarnveer |  |  | P | 
-| F16 | Control number of cities via command line parameter | Tarnveer |  | | P | 
+| F14 | Enrich island generator project to add cities of different sizes (from small hamlets to big capital cities) to the islands. | Tarnveer | 04/11/2023 | 04/12/2023 | D | 
+| F15 | Use pathfinder library to create a “star network” of roads on the island | Tarnveer | | | P | 
+| F16 | Control number of cities via command line parameter | Tarnveer |04/11/2023 | 04/12/2023 | D | 
 
 
 

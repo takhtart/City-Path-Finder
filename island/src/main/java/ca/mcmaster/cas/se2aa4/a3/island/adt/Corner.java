@@ -5,6 +5,9 @@ public class Corner {
     private int  red, green, blue = 0;
     private int elevation;
     private boolean landCorner = false;
+    private boolean city;
+    private String citytype;
+    private double size = 0.1;
 
     public Corner(double x, double y) {
         this.x = x;
@@ -18,6 +21,14 @@ public class Corner {
 
     public double getY() {
         return y;
+    }
+
+    public double getSize(){
+        return size;
+    }
+
+    public String getCityType(){
+        return citytype;
     }
 
     public void setElevation(int value){
@@ -55,6 +66,39 @@ public class Corner {
     public String getStringColor(){
         return red + "," + green + "," + blue;
     }
+
+    public boolean isCity(){
+        return city;
+    }
+
+    public void createCity(String citytype){
+        if (citytype.equals("hamlet")){
+            city = true;
+            this.citytype = citytype;
+            size = 12;
+            setColor(59,33,3);
+
+        }
+        else if(citytype.equals("city")){
+            city = true;
+            this.citytype = citytype;
+            size = 14;
+            setColor(92, 91, 84);
+        }
+        else if(citytype.equals("village")){
+            city = true;
+            this.citytype = citytype;
+            size = 10;
+            setColor(97, 56, 10);
+        }
+        else if(citytype.equals("capital")){
+            city = true;
+            this.citytype = citytype;
+            size = 16;
+            setColor(163, 150, 51);
+        }
+
+}
 
 }
 

@@ -8,6 +8,7 @@ import java.util.*;
 import ca.mcmaster.cas.se2aa4.a3.island.adt.*;
 import ca.mcmaster.cas.se2aa4.a3.island.altimetricProfiles.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.biomes.Whittiker;
+import ca.mcmaster.cas.se2aa4.a3.island.city.City;
 import ca.mcmaster.cas.se2aa4.a3.island.configuration.Configuration;
 import ca.mcmaster.cas.se2aa4.a3.island.modifiers.*;
 import ca.mcmaster.cas.se2aa4.a3.island.seed.*;
@@ -47,6 +48,8 @@ public class islandgen{
         soil.getHumidity(aquiferlist, tilesWithColors, aMesh.getEdgesList());
         Whittiker biome = new Whittiker(options.getOrDefault(Configuration.BIOME,"tropical"));
         aMesh = biome.generatebiomes(aMesh);
+        City cites = new City(Integer.parseInt(options.getOrDefault(Configuration.CITY,"0")));
+        aMesh = cites.generatecities(aMesh);
         System.out.println("Seed (-seed): " + seed.get(0) + seed.get(1) + seed.get(2));
         
 

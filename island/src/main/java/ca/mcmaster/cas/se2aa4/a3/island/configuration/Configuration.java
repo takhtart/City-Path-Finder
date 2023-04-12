@@ -24,6 +24,7 @@ public class Configuration {
     public static final String SOIL = "soil";
     public static final String BIOME = "biome";
     public static final String SEED = "seed";
+    public static final String CITY = "cities";
 
     private CommandLine cli;
 
@@ -83,6 +84,10 @@ public class Configuration {
         return this.cli.getOptionValue(SEED);
     }
 
+    public String city(){
+        return this.cli.getOptionValue(CITY);
+    }
+
     private void help() {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("java -jar island.jar", options());
@@ -122,6 +127,7 @@ public class Configuration {
         options.addOption(new Option(SOIL, true, "Soil Selection Options: arid, moist, normal (default)"));
         options.addOption(new Option(BIOME, true, "Whittiker Selection Options: arctic, grassland, tropical (default)"));
         options.addOption(new Option(SEED, true, "Seed Selection (Controls Randomness Of Rivers, Lakes And Aquifers)"));
+        options.addOption(new Option(CITY, true, "Number Of Cities To Generate"));
         // Global help
         options.addOption(new Option(HELP, false, "print help message"));
         return options;

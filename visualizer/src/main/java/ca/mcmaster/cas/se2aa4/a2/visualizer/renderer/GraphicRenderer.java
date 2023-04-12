@@ -12,6 +12,7 @@ import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.geom.Path2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.util.Iterator;
 import java.util.Optional;
@@ -25,6 +26,7 @@ public class GraphicRenderer implements Renderer {
         Stroke stroke = new BasicStroke(0.2f);
         canvas.setStroke(stroke);
         drawPolygons(aMesh,canvas);
+        drawcities(aMesh, canvas);
     }
 
     private void drawPolygons(Mesh aMesh, Graphics2D canvas) {
@@ -70,6 +72,40 @@ public class GraphicRenderer implements Renderer {
         }
         
     }
+
+    private void drawcities(Mesh aMesh, Graphics2D canvas){
+        for (Vertex v : aMesh.getVerticesList()){
+            String iscity = "";
+            double size = 0.0;
+
+
+            for(Property p: v.getPropertiesList()) {
+                if (p.getKey().equals("city")) {
+                    iscity = p.getValue();
+                }
+                if (p.getKey().equals("size")) {
+                    size = Double.parseDouble(p.getValue());
+                }
+
+            }   
+
+            if (iscity.equals("true")){
+                double centre_x = v.getX() - (size/2.0d);
+                double centre_y = v.getY() - (size/2.0d);
+                Color old = canvas.getColor();
+                canvas.setColor(extractColor(v.getPropertiesList()));
+                Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, size, size);
+                canvas.fill(point);
+                canvas.setColor(old);
+
+            }
+            
+        }
+        
+
+
+    }
+
     private Color extractColor(List<Property> properties) {
         String val = null;
         for(Property p: properties) {
