@@ -7,8 +7,11 @@ public class Node implements Comparable<Node>{
     private final double x, y;
     private List<Integer> neighbors = new ArrayList<>();
     private double cost = Double.MAX_VALUE;
-
+    private String nodetype;
+    private int reference;
     private int index;
+
+    
 
     public Node(int i, double x, double y) {
         this.index = i;
@@ -22,6 +25,27 @@ public class Node implements Comparable<Node>{
 
     public double getY() {
         return y;
+    }
+
+    public void setReference(int r){
+        reference = r;
+    }
+
+    public int getReference(){
+        return reference;
+    }
+
+   /*  public int getIndexFromRef(){
+
+    } */
+
+    public void setNodeType(String type){
+        nodetype = type;
+
+    }
+
+    public String getNodeType(){
+        return nodetype;
     }
 
     public void setCost(double d){

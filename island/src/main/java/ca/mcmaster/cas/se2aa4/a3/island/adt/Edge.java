@@ -7,6 +7,7 @@ public class Edge {
     private boolean marked = false;
     private String edgeType;
     private int thickness;
+    private boolean Road;
 
     public Edge(int c1, int c2) {
         this.c1 = c1;
@@ -19,6 +20,14 @@ public class Edge {
 
     public int getV2Idx(){
         return c2;
+    }
+
+    public void createRoad(){
+        Road = true;
+    }
+
+    public boolean isRoad(){
+        return Road;
     }
 
     public void setEdgeType(String type){

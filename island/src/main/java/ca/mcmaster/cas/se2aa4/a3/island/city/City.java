@@ -1,5 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.city;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 import ca.mcmaster.cas.se2aa4.a3.island.adt.IslandMesh;
@@ -13,6 +15,7 @@ public class City {
     }
 
     public IslandMesh generatecities(IslandMesh mesh){
+        List<Integer> CityIdx = new ArrayList<>();
 
         for (int i = 0; i < numCities; i++) {
 
@@ -25,30 +28,37 @@ public class City {
 
                 if (tile.getTiletype().equals("land")){
                     int centroididx = tile.getCentroidIdx();
-                    Corner cendroid = mesh.getCornersList().get(centroididx);
-                    Corner c = new Corner(cendroid.getX(), cendroid.getY());
+                    Corner centroid = mesh.getCornersList().get(centroididx);
+                    CityIdx.add(centroididx);
                     
                     if (i == numCities-1){
-                        c.createCity("capital");
+                        centroid.createCity(cities[3]);
                     }
                     else{
                         int cityidx = rand.nextInt(0,3);
-                        c.createCity(cities[cityidx]);
+                        centroid.createCity(cities[cityidx]);
                     }
-                    
-                    mesh.getCornersList().add(c);
+                
                     break;
-
                 }
 
             }
 
+           
+
+            
             
         }
 
-        IslandMesh Mesh = new IslandMesh(mesh.getWidth(), mesh.getHeight(), mesh.getCornersList(), mesh.getEdgesList(), mesh.getTilesList());
+        IslandMesh CityMesh = new IslandMesh(mesh.getWidth(), mesh.getHeight(), mesh.getCornersList(), mesh.getEdgesList(), mesh.getTilesList());
 
-        return Mesh;
+        Roads r = new Roads();
+        List<Edge> roads = r.generateroads(CityMesh, CityIdx);
+        mesh.getEdgesList().addAll(roads);
+
+        IslandMesh PathedMesh = new IslandMesh(mesh.getWidth(), mesh.getHeight(), mesh.getCornersList(), mesh.getEdgesList(), mesh.getTilesList());
+
+        return PathedMesh;
 
 
     }

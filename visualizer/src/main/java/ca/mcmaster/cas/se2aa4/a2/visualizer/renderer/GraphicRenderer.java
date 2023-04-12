@@ -26,6 +26,7 @@ public class GraphicRenderer implements Renderer {
         Stroke stroke = new BasicStroke(0.2f);
         canvas.setStroke(stroke);
         drawPolygons(aMesh,canvas);
+        drawroads(aMesh, canvas);
         drawcities(aMesh, canvas);
     }
 
@@ -106,6 +107,33 @@ public class GraphicRenderer implements Renderer {
 
     }
 
+    private void drawroads(Mesh aMesh, Graphics2D canvas){
+
+        for(Segment s: aMesh.getSegmentsList()) {
+            String isRoad = "";
+
+            for(Property p: s.getPropertiesList()) {
+                if (p.getKey().equals("isRoad")) {
+                    isRoad = p.getValue();
+                }
+            }   
+
+            if (isRoad.equals("true")){
+                List<Vertex> v = aMesh.getVerticesList();
+                int v1 = s.getV1Idx();
+                int v2 = s.getV2Idx();
+                double centre_x1 = v.get(v1).getX();
+                double centre_y1 = v.get(v1).getY();
+                double centre_x2 = v.get(v2).getX();
+                double centre_y2 = v.get(v2).getY();
+                canvas.setColor(extractColor(s.getPropertiesList()));
+                canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
+                Line2D.Double Line = new Line2D.Double(centre_x1,centre_y1,centre_x2,centre_y2);
+                canvas.draw(Line);
+            }
+        }
+
+    }
     private Color extractColor(List<Property> properties) {
         String val = null;
         for(Property p: properties) {

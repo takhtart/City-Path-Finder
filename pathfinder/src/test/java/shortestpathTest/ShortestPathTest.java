@@ -25,6 +25,14 @@ public class ShortestPathTest {
         Node n5 = new Node(5, 70, 70);
         Node n6 = new Node(6, 80, 100);
 
+        n0.setNodeType("land");
+        n1.setNodeType("land");
+        n2.setNodeType("land");
+        n3.setNodeType("land");
+        n4.setNodeType("land");
+        n5.setNodeType("land");
+        n6.setNodeType("land");
+
         n0.addNeighbor(1);
 
         n1.addNeighbor(0);
@@ -62,7 +70,8 @@ public class ShortestPathTest {
         Graph graph = new Graph(nodes, edges);
 
         Dijkstra d = new Dijkstra();
-        List<Node> NodePath = d.findpath(n0,n6,graph);
+        List<Node> path = d.GenDijkstra(n0, graph);
+        List<Node> NodePath = d.findpath(n0,n6,path);
 
         List<Integer> ShortestIdxPath = new ArrayList<>();
         for (Node k : NodePath) {
