@@ -1,6 +1,8 @@
-# Assignment A3: Island Generator
+# Assignment A4: Urbanism
 
   - Author #1 [takhtart@mcmaster.ca]
+
+# Co-Authors Of A2,A3
   - Author #2 [sok13@mcmaster.ca]
   - Author #3 [kugana7@mcmaster.ca]
 
@@ -23,19 +25,14 @@ Island Mesh Procedure:
 
 
 
-For MVP Release:
+For Final Release:
 `java -jar island/target/2aa4.mesh.island-jar-with-dependencies.jar -i img/irregular.mesh <options> -o img/island.mesh`
 `java -jar visualizer/target/2aa4.mesh.visualizer-jar-with-dependencies.jar img/island.mesh visualizer/sample.svg`
 
 One can run the generator with `-help` as option to see the different command line arguments that are available.
 
-`-mode lagoon` is required to generate the island. Optional: Can Control Inner And Outer Radius of Shape `-help` for more info.
-Optional commands: `-ir` inner radius, `-or` outer radius.
-
-For Final Release:
-
 For the Island Mesh The Following Commands Are Mandatory:
-`-shape` (Choosing Shape) (`-mode` is deprecated)
+`-shape` (Choosing Shape) 
 
 NEW Cities Added:
 `-cities` (number of cities), Will Create A Star Network Of Roads From a Randomly Chosen Capital (Shortest Path)
