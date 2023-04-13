@@ -43,13 +43,6 @@ public class Roads {
             i++;
         }
 
-        List<Integer> refer = new ArrayList<>();
-
-        for (int index = 0; index < nodes.size(); index++) {
-            refer.add(nodes.get(index).getReference());
-            
-        }
-
         for (int index = 0; index < nodes.size(); index++) {
 
             List<Integer> neighborPolyIdx = mesh.getTile(index).getNeighborsList();
@@ -83,7 +76,6 @@ public class Roads {
                 cornerspath.add(path.get(l).getReference());
             }
 
-            System.out.println("Path" + cornerspath);
             for (int l = 0; l < cornerspath.size()-1; l++) {
                 ca.mcmaster.cas.se2aa4.a3.island.adt.Edge edge = new Edge(cornerspath.get(l), cornerspath.get(l+1));
                 edge.setColor(0,0,0);
@@ -91,6 +83,8 @@ public class Roads {
                 edge.createRoad();
                 roads.add(edge);
             }
+
+
             
         }
 

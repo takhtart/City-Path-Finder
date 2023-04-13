@@ -26,7 +26,6 @@ public class Dijkstra implements FindPath{
                 MinPQ.add(source);
                 while (MinPQ.isEmpty() == false){
                     Node m = MinPQ.poll();
-                    //System.out.println(m.getNeighborsNodes());
                     for (Integer o: m.getNeighborsNodes()){
                         Node n = nodes.get(o);
         
@@ -39,24 +38,6 @@ public class Dijkstra implements FindPath{
         
         
                 }
-                
-                List<Integer> DijkstraIdxPath = new ArrayList<>();
-      /*           List<Integer> Path = new ArrayList<>();
-                for (Node k : path) {
-                    if (k != null){
-                        Path.add(k.getIndex());
-                    }
-                    else{
-                        Path.add(-1);
-                    }
-                        
-                }
-               System.out.println(Path); */
-
-                for (Node n : path) {
-                    DijkstraIdxPath.add(n.getIndex());
-                }
-                //System.out.println(DijkstraIdxPath);
         
                 return path;
             }

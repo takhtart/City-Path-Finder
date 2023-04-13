@@ -34,11 +34,7 @@ public class Node implements Comparable<Node>{
     public int getReference(){
         return reference;
     }
-
-   /*  public int getIndexFromRef(){
-
-    } */
-
+    
     public void setNodeType(String type){
         nodetype = type;
 
