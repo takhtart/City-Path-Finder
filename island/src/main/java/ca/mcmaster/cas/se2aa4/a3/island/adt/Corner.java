@@ -75,27 +75,27 @@ public class Corner {
         if (citytype.equals("hamlet")){
             city = true;
             this.citytype = citytype;
-            size = 12;
-            setColor(59,33,3);
+            size = 10;
+            setColor(212, 245, 179);
 
         }
         else if(citytype.equals("city")){
             city = true;
             this.citytype = citytype;
             size = 14;
-            setColor(92, 91, 84);
+            setColor(205, 212, 208);
         }
         else if(citytype.equals("village")){
             city = true;
             this.citytype = citytype;
-            size = 10;
-            setColor(97, 56, 10);
+            size = 12;
+            setColor(64, 51, 37);
         }
         else if(citytype.equals("capital")){
             city = true;
             this.citytype = citytype;
             size = 16;
-            setColor(163, 150, 51);
+            setColor(255,215,0);
         }
 
 }

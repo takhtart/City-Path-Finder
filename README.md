@@ -20,6 +20,9 @@ One can run the generator with `-help` as option to see the different command li
 
 Island Mesh Procedure:
 
+
+
+
 For MVP Release:
 `java -jar island/target/2aa4.mesh.island-jar-with-dependencies.jar -i img/irregular.mesh <options> -o img/island.mesh`
 `java -jar visualizer/target/2aa4.mesh.visualizer-jar-with-dependencies.jar img/island.mesh visualizer/sample.svg`
@@ -33,6 +36,10 @@ For Final Release:
 
 For the Island Mesh The Following Commands Are Mandatory:
 `-shape` (Choosing Shape) (`-mode` is deprecated)
+
+NEW Cities Added:
+`-cities` (number of cities), Will Create A Star Network Of Roads From a Randomly Chosen Capital (Shortest Path)
+*Note* If Cities Are Scattered Between Land Masses Seperated By An "Ocean", Roads Will be generated crossing the ocean (Still shortest path), so that all cities are connected, It can be assumed that the path crossing the ocean be considered a bridge between land masses.
 
 **For Reproductability:
 If using `-shape random` it will provide you with a seed that can be invoked using `-ns <seed value>` (To Reproduce Island)
