@@ -1,4 +1,4 @@
-# Island-Urbanism
+# Island Urbanism
 
   - Author #1 [takhtart@mcmaster.ca]
 
