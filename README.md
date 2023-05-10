@@ -1,10 +1,13 @@
-# Urbanism
+# Island-Urbanism
 
   - Author #1 [takhtart@mcmaster.ca]
 
 # Co-Authors Of Island-Generator
   - Author #2 [sok13@mcmaster.ca]
   - Author #3 [kugana7@mcmaster.ca]
+
+# Description
+Extension of Previous Island-Generator Projects, Cities can now be plotted on islands and a star-network of roads are drawn from each city to a randomly chosen capital. Dijkstra's Shortest path algorithm used for optimal pathplanning between a city and its capital.
 
 ## How to run the product
 
