@@ -1,4 +1,4 @@
-# Assignment A4: Urbanism
+# Urbanism
 
   - Author #1 [takhtart@mcmaster.ca]
 
